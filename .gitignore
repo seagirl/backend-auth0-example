@@ -1,0 +1,10 @@
+coverage
+node_modules/
+typings/
+dist/
+
+# Mac OSX
+.DS_Store
+
+# Vim swap files
+*.swp
