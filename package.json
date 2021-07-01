@@ -41,6 +41,7 @@
     "express-jwt-authz": "^2.4.1",
     "express-openapi-validator": "4.11.0",
     "express-session": "^1.17.0",
+    "firebase-admin": "^9.10.0",
     "jwks-rsa": "^2.0.3",
     "luxon": "^1.22.2",
     "pg": "^7.12.1",

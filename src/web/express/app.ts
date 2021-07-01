@@ -1,7 +1,5 @@
 import express, { Express, NextFunction, Request, Response } from 'express'
-import jwt from 'express-jwt'
 import { Server } from 'http'
-import jwks from 'jwks-rsa'
 import { DateTime } from 'luxon'
 import { loadConfig } from '../../config'
 import { DB } from '../../db'
@@ -52,20 +50,6 @@ export default class Application {
 
     // const validationHandler = await this.validator.middleware()
     // this.express.use(validationHandler)
-
-    const jwtCheck = jwt({
-      secret: jwks.expressJwtSecret({
-        cache: true,
-        rateLimit: true,
-        jwksRequestsPerMinute: 5,
-        jwksUri: 'https://s2factory.jp.auth0.com/.well-known/jwks.json'
-      }),
-      audience: 'http://localhost:3001',
-      issuer: 'https://s2factory.jp.auth0.com/',
-      algorithms: ['RS256']
-    })
-
-    this.express.use(jwtCheck)
 
     this.express.use(session.handler)
     this.express.use(session.authorizationHandler)
